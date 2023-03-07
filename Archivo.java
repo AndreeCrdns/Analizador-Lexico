@@ -1,32 +1,46 @@
 import java.io.*;
-
+//import java.util.Scanner;
 public class Archivo {
-      String archivo = "C:/Users/andre/OneDrive/Desktop/prueba.txt";
-      public void Imprimir(String contenido) {
+   FileReader lFileReader;
+   BufferedReader lBufferedReader;
+   public Archivo(String direccionArchivo){
+   try {
+      this.lFileReader = new FileReader(direccionArchivo);
+      this.lBufferedReader = new BufferedReader(lFileReader);
+   } catch (Exception e) {
+      System.out.println("Error al leer el archivo");
+   } 
+    }
+   public String[] LineaPalabra(){
+      String linea;
       try {
-         FileWriter fw = new FileWriter(archivo);
-         BufferedWriter bw = new BufferedWriter(fw);
+         if((linea = lBufferedReader.readLine()) != null){
+            String [] palabras = linea.split(" ");
+            return palabras;
+         }
 
-         bw.write(contenido);
-
-         bw.close();
-      } catch (IOException e) {
-         System.out.println("Error al escribir en el archivo: " + e.getMessage());
-      }
-    }
-    public void Leer(){
-        String linea;
-        try {
-           FileReader fr = new FileReader(archivo);
-           BufferedReader br = new BufferedReader(fr);
-  
-           while ((linea = br.readLine()) != null) {
-              System.out.println(linea);
-           }
-  
-           br.close();
-        } catch (IOException e) {
-           System.out.println("Error al leer el archivo: " + e.getMessage());
-        }
-    }
+         lBufferedReader.close();
+         String [] mensaje = {"Error al archivo vacio"} ;
+         return mensaje;
+         
+         }catch (IOException e) {
+         String [] mensaje = {"Error de IO"} ;
+         return mensaje;
+         }
+   }
+//public static void main(String[] args) {
+//  Archivo arc = new Archivo("C:/Users/andre/OneDrive/Desktop/Leer.txt");
+     //    System.out.println(arc);
+   // }
 }
+//try {
+//   Scanner sc = new Scanner(new File(direccionArchivo));
+//   while(sc.hasNext()){
+//      String nombre = sc.next();
+//      String patron = sc.next();
+//      System.out.println("Nombre: "+ nombre +" Patron: "+ patron);
+//   }
+//   sc.close();
+//} catch (Exception e) {
+//}
+//
