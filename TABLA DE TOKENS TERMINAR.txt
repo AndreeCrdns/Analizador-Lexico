@@ -1,0 +1,54 @@
+Tknvariables		variables:
+Tknvariable			variable
+//Falta ER DEL CONTENIDO DE VARIABLE
+Tknentero			entero
+//Falta ER DE ENTERO
+Tkntexto			texto
+//Falta ER DE TEXTO
+Tkndecimal			decimal
+//Falta ER DE DECIMAL
+Tknsimbolo			simbolo
+//Falta ER DE SIMBOLO
+TknLogico			Logico
+//Falta ER
+Tknfechahora		feha-hora //PREGUNTAR
+//Falta ER DE FECHA-HORA
+Tknfecha			fecha
+//Falta ER DE FECHA
+Tknhora			hora
+//Falta ER DE HORA
+Tknrfc			rfc
+//Falta ER DE RFC
+Tkncurp			curp
+//Falta ER DE CURP
+Tknfunciones		funciones:
+Tknfuncion			funcion
+//ER DE FUNCION
+Tknprocedimientos		procedimientos:
+Tkninicio			inicio[.|:]
+Tknfin			fin[.|:]
+Tknsi-entonces-sino	si-entonces-sino
+Tknpara			para
+Tknmientras			mientras
+Tknromper			romper
+Tkncomentario		#.* //Comprobar
+TknSuma			+
+TknResta			-
+TknMultiplicacion		*
+TknDivision			/
+TknModulo			%
+TknIncremento		++
+TknDecremento		--
+TknAsignacion		=
+TknAsignacionSuma		+=
+TknAsignacionResta	-=
+TknAsignacionMulti	*=
+TknAsignacionModulo	%=
+TknIgualdad			==
+TknDesigualdad		!=
+TknMayor			>
+TknMenor			<
+TknMayorIgual		>=
+TknMenorIgual		<=
+
+
