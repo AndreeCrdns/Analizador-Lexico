@@ -1,31 +1,36 @@
 import java.io.*;
-//import java.util.Scanner;
+
 public class Archivo {
-   FileReader lectorReader;
-   BufferedReader leerlinea;
+    private FileReader lectorReader;
+    private BufferedReader lectorBuffer;
 
-   public Archivo(String archivo){
-      try {
-      this.lectorReader = new FileReader(archivo);
-      this.leerlinea = new BufferedReader(lectorReader);
-      } catch (IOException e) {
-      System.out.println("ERROR AL LEER EL ARCHIVO");
-      }
-   }
+    public Archivo(String archivo) {
+        try {
+            this.lectorReader = new FileReader(archivo);
+            this.lectorBuffer = new BufferedReader(lectorReader);
+        } catch (IOException e) {
+            System.out.println("ERROR");
+        }
+    }
 
-   public String[] LineaPalabra(){
-      String linea;
-      try {
-         if((linea = leerlinea.readLine()) != null){
-            String [] palabra = linea.split(" ");
-            return palabra;
-         }
-         leerlinea.close();
-         String [] mensaje = {"Error de archivos"} ;
-         return mensaje;
-         }catch (Exception e) {
-         String [] mensaje = {"Error de entradas y salidas"} ;
-         return mensaje;
-         }
-   }
+    public String[] LineaPalabra() {
+        String linea;
+        try {
+            while ((linea = lectorBuffer.readLine()) != null) // Mientras linea sea diferente de null, se va a imprimir
+                                                              // la linea
+            {
+                if (linea.trim().startsWith("#") || linea.trim().isEmpty()) {
+                    continue;
+                }
+                String[] palabras = linea.split("\\s+([?=([^\"]*\")*[^\"]*$])");
+                return palabras;
+            }
+            lectorBuffer.close();
+            String[] mensaje = { "Error" };
+            return mensaje;
+        } catch (IOException e) {
+            String[] mensaje = { "Error de entrada y salida" };
+            return mensaje;
+        }
+    }
 }

@@ -1,0 +1,25 @@
+variables:
+variable edad entero
+variable nombre texto
+codigo-principal:
+              inicio.
+edad = 25
+nombre = "Juan"
+validar_edad ( mensaje , edad )
+fin.
+funciones:
+función saludar ( nombre )
+inicio:
+imprimir ( "Hola, " + nombre )
+devolver
+fin:
+procedimientos:
+procedimiento validar_edad ( mensaje , edad )
+inicio:
+# Esto es un comentario:
+si edad > 18 entonces
+imprimir( "Eres mayor de edad" )
+sino
+imprimir( "Eres menor de edad" )
+saludar( nombre )
+fin:
