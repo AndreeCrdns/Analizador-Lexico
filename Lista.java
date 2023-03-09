@@ -7,8 +7,12 @@ public class Lista {
         this.ultimo = ultimo;
     }
 
-    public boolean empty(){ //Revisa si la lista esta vacia
+    public boolean empty()
+    { //Revisa si la lista esta vacia
         return raiz == null;
+    }
+    public void vaciarLista() { // Vacia la lista
+        raiz = null;
     }
     public void insertar(String nombre, String patron) { //
         Nodo nuevo = new Nodo(nombre, patron);
@@ -21,34 +25,34 @@ public class Lista {
             ultimo.getSig();
         }
     }
-    public String validarLexema(String lexema) {
+    public String validarCadena(String cadena) {
         String myToken = "ERROR";
         if(!empty()){
             Nodo aux = raiz;
             do
             {
-                myToken = aux.Validar(lexema);
+                myToken = aux.Validar(cadena);
                 aux = aux.getSig();
             }while(aux != null && myToken == "ERROR");
             return myToken;
-        }else{
+        }
+        else{
             return "Lista vacia";
         }
         
     }
-    public void vaciarLista() { // Vacia la lista
-        raiz = null;
-    }
     public void Llenarlista(String archivo){
         Archivo arc = new Archivo(archivo);
-        String [] palabras;
+        String[]palabra;
         do
         {
-            palabras = arc.LineaPalabra();
-            if(palabras[0]== "Error de archivos"){
+            palabra = arc.LineaPalabra();
+            if(palabra[0] == "ERROR de archivos")
+            {
                 break;
             }
-            insertar(palabras[0],palabras[1]);
-        }   while (palabras[0] != "Error de archivos" );
+            insertar(palabra[0], palabra[1]);
+        }   
+        while (palabra[0] != "ERROR de archivos" );
     }
 }

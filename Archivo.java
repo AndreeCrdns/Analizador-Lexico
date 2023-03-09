@@ -1,46 +1,31 @@
 import java.io.*;
 //import java.util.Scanner;
 public class Archivo {
-   FileReader lFileReader;
-   BufferedReader lBufferedReader;
-   public Archivo(String direccionArchivo){
-   try {
-      this.lFileReader = new FileReader(direccionArchivo);
-      this.lBufferedReader = new BufferedReader(lFileReader);
-   } catch (Exception e) {
-      System.out.println("Error al leer el archivo");
-   } 
-    }
+   FileReader lectorReader;
+   BufferedReader leerlinea;
+
+   public Archivo(String archivo){
+      try {
+      this.lectorReader = new FileReader(archivo);
+      this.leerlinea = new BufferedReader(lectorReader);
+      } catch (IOException e) {
+      System.out.println("ERROR AL LEER EL ARCHIVO");
+      }
+   }
+
    public String[] LineaPalabra(){
       String linea;
       try {
-         if((linea = lBufferedReader.readLine()) != null){
-            String [] palabras = linea.split(" ");
-            return palabras;
+         if((linea = leerlinea.readLine()) != null){
+            String [] palabra = linea.split(" ");
+            return palabra;
          }
-
-         lBufferedReader.close();
-         String [] mensaje = {"Error al archivo vacio"} ;
+         leerlinea.close();
+         String [] mensaje = {"Error de archivos"} ;
          return mensaje;
-         
-         }catch (IOException e) {
-         String [] mensaje = {"Error de IO"} ;
+         }catch (Exception e) {
+         String [] mensaje = {"Error de entradas y salidas"} ;
          return mensaje;
          }
    }
-//public static void main(String[] args) {
-//  Archivo arc = new Archivo("C:/Users/andre/OneDrive/Desktop/Leer.txt");
-     //    System.out.println(arc);
-   // }
 }
-//try {
-//   Scanner sc = new Scanner(new File(direccionArchivo));
-//   while(sc.hasNext()){
-//      String nombre = sc.next();
-//      String patron = sc.next();
-//      System.out.println("Nombre: "+ nombre +" Patron: "+ patron);
-//   }
-//   sc.close();
-//} catch (Exception e) {
-//}
-//

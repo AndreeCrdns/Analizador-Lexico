@@ -1,6 +1,5 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 public class Token { //Clase Token  
     private String patron;
     private String nombre;
@@ -24,11 +23,10 @@ public class Token { //Clase Token
             Pattern pat = Pattern.compile(patron);      //define el objeto de pattern y este comprueba define la ER
             Matcher mat = pat.matcher(cadena);          //define el objeto de matcher y este comprueba que el pattern si coincida con el matcher
             if (mat.matches()){
-               return "Token: "+ nombre;
+               return nombre;
             }else{
-               return "ERROR"; 
+               throw new Exception("ERROR") ; 
             }
-
         }
     //public static void main(String[] args) {
     //    Scanner sc = new Scanner(System.in);
