@@ -23,7 +23,6 @@ public class Lista {
         } else { // Si la lista no esta vacia pone el nuevo en el ultimo y el ultimo "apunta"
                  // hacia la nada
             ultimo.setSig(nuevo);
-            ;
             ultimo.getSig();
         }
     }
@@ -48,7 +47,6 @@ public class Lista {
         String[] palabra;
         do {
             palabra = arc.LineaPalabra();
-
             if (palabra[0] == "Error") {
                 break;
             }

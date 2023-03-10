@@ -9,7 +9,7 @@ public class Archivo {
             this.lectorReader = new FileReader(archivo);
             this.lectorBuffer = new BufferedReader(lectorReader);
         } catch (IOException e) {
-            System.out.println("ERROR");
+            System.out.println("Error al leer el archivo");
         }
     }
 

@@ -19,7 +19,7 @@ public class Nodo {
         try {
             return dato.Validar(cadena);
         } catch (Exception e) {
-            return "Error";
+            return "Error de nodo";
         }
     }
 }
