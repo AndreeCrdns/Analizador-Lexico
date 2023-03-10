@@ -2,13 +2,13 @@ variables:
 variable edad entero
 variable nombre texto
 codigo-principal:
-              inicio.
+inicio.
 edad = 25
 nombre = "Juan"
 validar_edad ( mensaje , edad )
 fin.
 funciones:
-función saludar ( nombre )
+funcion saludar ( nombre )
 inicio:
 imprimir ( "Hola, " + nombre )
 devolver
@@ -18,8 +18,10 @@ procedimiento validar_edad ( mensaje , edad )
 inicio:
 # Esto es un comentario:
 si edad > 18 entonces
-imprimir( "Eres mayor de edad" )
+imprimir ( "Eres mayor de edad" )
 sino
-imprimir( "Eres menor de edad" )
-saludar( nombre )
+imprimir ( "Eres menor de edad" )
+saludar ( nombre )
 fin:
+CAFA021017HBCRLNA5
+CAUC7403314Q0

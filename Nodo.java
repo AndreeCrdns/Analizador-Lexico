@@ -2,6 +2,14 @@ public class Nodo {
     private Token dato;
     private Nodo sig;
 
+    public void setDato(Token dato) {
+        this.dato = dato;
+    }
+
+    public Token getDato() {
+        return dato;
+    }
+
     public Nodo getSig() {
         return sig;
     }
@@ -14,12 +22,7 @@ public class Nodo {
         dato = new Token(nombre, patron);
     }
 
-    public String Validar(String cadena) { // Valida la cadena mandando a llamar la validacion de la clase token por
-                                           // medio de dato
-        try {
+    public String Validar(String cadena) throws Exception { // Valida la cadena mandando a llamar la validacion de la clase token por
             return dato.Validar(cadena);
-        } catch (Exception e) {
-            return "Error de nodo";
-        }
     }
 }
