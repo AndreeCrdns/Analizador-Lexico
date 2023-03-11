@@ -16,16 +16,15 @@ public class Archivo {
     public String[] LineaPalabra() {
         String linea;
         try {
-            while ((linea = lectorBuffer.readLine()) != null) // Mientras linea sea diferente de null, se va a imprimir la linea
-            {
-                if (linea.trim().startsWith("#") || linea.trim().isEmpty()) {
+            while ((linea = lectorBuffer.readLine()) != null) {
+                if (linea.trim().startsWith("#") || linea.isEmpty()) {
                     continue;
                 }
                 String[] palabras = linea.split("\\s+(?=([^\"]*\")*[^\"]*$)");
                 return palabras;
             }
             lectorBuffer.close();
-            String[] mensaje = {"Error"};
+            String[] mensaje = { "Error" };
             return mensaje;
         } catch (IOException e) {
             String[] mensaje = { "Error de lectura" };
@@ -33,3 +32,4 @@ public class Archivo {
         }
     }
 }
+// "([^"\\]*(\\.[^"\\]*)*)"
