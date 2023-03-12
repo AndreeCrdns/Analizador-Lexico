@@ -16,7 +16,7 @@ public class Token {
         if (mat.matches()) {
             return nombre;
         } else {
-            return ("Error");
+            return "Error";
         }
     }
 }

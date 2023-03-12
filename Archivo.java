@@ -13,23 +13,27 @@ public class Archivo {
         }
     }
 
-    public String[] LineaPalabra() {
+    public String[] LeerPalabra() {
         String linea;
         try {
-            while ((linea = lectorBuffer.readLine()) != null) {
-                if (linea.trim().startsWith("#") || linea.isEmpty()) {
+            while ((linea = lectorBuffer.readLine()) != null) // Mientras linea sea diferente de null, se va a imprimir
+                                                              // la linea
+            {
+                if (linea.trim().startsWith("#") || linea.trim().isEmpty()) {
                     continue;
                 }
-                String[] palabras = linea.split("\\s+(?=([^\"]*\")*[^\"]*$)");
+                String[] palabras = linea.trim().split("\\s+(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
                 return palabras;
             }
             lectorBuffer.close();
             String[] mensaje = { "Error" };
             return mensaje;
         } catch (IOException e) {
-            String[] mensaje = { "Error de lectura" };
+            String[] mensaje = { "Error de entrada y salida" };
             return mensaje;
         }
     }
 }
 // "([^"\\]*(\\.[^"\\]*)*)"
+// ^\"([^\"]+)\"$
+// "\\s+(?=([^\"]*\")*[^\"]*$)"

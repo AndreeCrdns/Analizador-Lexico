@@ -47,11 +47,11 @@ public class Lista {
         Archivo arc = new Archivo(archivo);
         String [] palabra;
         do {
-            palabra = arc.LineaPalabra();
+            palabra = arc.LeerPalabra();
             if (palabra[0] == "Error") {
                 break;
             }
             insertar(palabra[0], palabra[1]);
-        } while (palabra[0] != "Error de llenado");
+        } while (palabra[0] != "Error");
     }
 }
