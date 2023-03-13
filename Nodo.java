@@ -2,14 +2,6 @@ public class Nodo {
     private Token dato;
     private Nodo sig;
 
-    public void setDato(Token dato) {
-        this.dato = dato;
-    }
-
-    public Token getDato() {
-        return dato;
-    }
-
     public Nodo getSig() {
         return sig;
     }

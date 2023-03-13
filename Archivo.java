@@ -4,7 +4,7 @@ public class Archivo {
     private FileReader lectorReader;
     private BufferedReader lectorBuffer;
 
-    public Archivo(String archivo) {
+    public Archivo(String archivo) { //Lee el archivo y si este no lo detecta imprime un error.
         try {
             this.lectorReader = new FileReader(archivo);
             this.lectorBuffer = new BufferedReader(lectorReader);
@@ -13,7 +13,7 @@ public class Archivo {
         }
     }
 
-    public String[] LeerPalabra() {
+    public String[] SepararPalabras() { // Separa las palabras por espacios
         String linea;
         try {
             while ((linea = lectorBuffer.readLine()) != null) // Mientras linea sea diferente de null, se va a imprimir
@@ -22,18 +22,17 @@ public class Archivo {
                 if (linea.trim().startsWith("#") || linea.trim().isEmpty()) {
                     continue;
                 }
-                String[] palabras = linea.trim().split("\\s+(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+                String[] palabras = linea.trim().split("\\s+(?=([^\"]*\"[^\"]*\")*[^\"]*$)"); // Junta con las cadenas
+                                                                                              // cuando inicien y
+                                                                                              // terminen con ""
                 return palabras;
             }
             lectorBuffer.close();
-            String[] mensaje = { "Error" };
-            return mensaje;
+            String[] Error = { "Error" };
+            return Error;
         } catch (IOException e) {
-            String[] mensaje = { "Error de entrada y salida" };
-            return mensaje;
+            String[] Error = { "Error de entrada y salida" };
+            return Error;
         }
     }
 }
-// "([^"\\]*(\\.[^"\\]*)*)"
-// ^\"([^\"]+)\"$
-// "\\s+(?=([^\"]*\")*[^\"]*$)"

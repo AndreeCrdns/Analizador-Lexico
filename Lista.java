@@ -2,11 +2,6 @@ public class Lista {
     private Nodo raiz;
     private Nodo ultimo;
 
-    public Lista() {
-        this.raiz = raiz;
-        this.ultimo = ultimo;
-    }
-
     public boolean empty() { // Revisa si la lista esta vacia
         return raiz == null;
     }
@@ -28,7 +23,7 @@ public class Lista {
             ultimo=ultimo.getSig();
         }
     }
-    public String validarCad(String cadena) throws Exception //
+    public String validarCadena(String cadena) throws Exception //
     {
         Nodo aux=raiz;
         String palabra = "Error" ;
@@ -47,7 +42,7 @@ public class Lista {
         Archivo arc = new Archivo(archivo);
         String [] palabra;
         do {
-            palabra = arc.LeerPalabra();
+            palabra = arc.SepararPalabras();
             if (palabra[0] == "Error") {
                 break;
             }
